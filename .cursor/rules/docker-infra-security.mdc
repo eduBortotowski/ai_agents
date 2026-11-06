@@ -1,0 +1,13 @@
+---
+description: Segurança em Dockerfile, docker-compose e pipelines de CI/CD
+globs: **/Dockerfile*,**/docker-compose*.yml,**/docker-compose*.yaml,.github/workflows/**
+alwaysApply: false
+---
+
+# Docker, Compose e CI/CD: segurança
+
+- Dockerfile: fixe a versão da imagem base (nada de `latest`), rode como usuário não-root, use multi-stage build e `.dockerignore`.
+- Nunca coloque segredos em `ENV`, `ARG`, `COPY` ou camadas da imagem. Injete em tempo de execução.
+- Compose: não exponha portas de banco/fila ao host sem necessidade. Use `env_file` ou secrets, nunca valores fixos.
+- Adicione `healthcheck` e limites de recursos quando fizer sentido.
+- CI/CD: segredos só via secrets do provedor, nunca impressos em logs. Fixe versões de ações de terceiros e use permissões mínimas.

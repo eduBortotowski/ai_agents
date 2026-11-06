@@ -1,0 +1,13 @@
+---
+description: Convenções para criar ou editar arquivos README.md, que devem seguir o template padrão do repositório
+globs: **/README.md
+alwaysApply: false
+---
+
+# README: convenções
+
+- Todo README segue o template em `.cursor/skills/readme-generation/references/readme-template.md`. Respeite a ordem e os títulos das seções.
+- Documente **somente o que existe no projeto**. Não invente comandos, variáveis, endpoints ou funcionalidades.
+- Nunca inclua segredos, credenciais, tokens, IPs ou hosts internos. Em variáveis de ambiente, use apenas nomes e exemplos fictícios.
+- Comandos, caminhos e variáveis citados devem existir de fato no repositório.
+- Para gerar ou atualizar o README do projeto inteiro, use o comando `/generate-readme`.

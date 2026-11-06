@@ -1,0 +1,17 @@
+---
+description: Boas práticas de Python e Django ao escrever ou editar arquivos .py
+globs: **/*.py
+alwaysApply: false
+---
+
+# Python / Django: boas práticas
+
+- Siga PEP 8 e PEP 257. Respeite a configuração de `ruff`/`flake8`/`black` do projeto, se existir.
+- Use type hints em funções públicas (PEP 484).
+- Nunca use argumentos mutáveis como padrão (`def f(x=[])`). Nunca use `except:` genérico nem `except Exception: pass`.
+- Compare com `None` usando `is`. Não sombreie built-ins (`id`, `type`, `list`).
+- Use `with` para arquivos e conexões, `pathlib` para caminhos, f-strings e `logging` (não `print`).
+- Evite `import *` e imports circulares.
+- Django: evite N+1 (`select_related`/`prefetch_related`), mantenha views e serializers finos (regra de negócio em services/models), separe settings por ambiente, nunca edite migrations já aplicadas.
+- DRF: defina `permission_classes` explícitas, evite `fields = '__all__'`, use paginação e throttling.
+- Segredos e `DEBUG` sempre vindos do ambiente.

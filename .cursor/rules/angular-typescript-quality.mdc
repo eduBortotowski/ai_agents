@@ -1,0 +1,17 @@
+---
+description: Boas práticas de TypeScript e Angular ao escrever ou editar arquivos .ts e templates .html
+globs: **/*.ts,**/*.html
+alwaysApply: false
+---
+
+# TypeScript / Angular: boas práticas
+
+- Mantenha `strict` ativo no `tsconfig`. Evite `any` e `@ts-ignore` sem justificativa.
+- Use `const`/`let` (nunca `var`) e `===`.
+- RxJS: não deixe `subscribe` sem cancelamento. Prefira o `async` pipe ou `takeUntilDestroyed`. Evite `subscribe` aninhado.
+- Componentes pequenos e focados. Lógica de negócio e acesso a dados em services.
+- Templates sem lógica pesada. Use `track`/`trackBy` em listas.
+- Prefira `ChangeDetectionStrategy.OnPush` e formulários tipados.
+- Autenticação e erros HTTP em interceptors.
+- Nunca use `innerHTML`/`bypassSecurityTrust*` com dado externo.
+- Nada de chave secreta em `environment.ts`: tudo que vai no bundle é público.

@@ -1,0 +1,20 @@
+---
+description: Regras de segurança sempre ativas para qualquer código gerado ou alterado neste projeto
+alwaysApply: true
+---
+
+# Segurança: baseline
+
+Aplique sempre, ao escrever ou alterar qualquer código:
+
+- **Nunca** coloque segredos no código (senhas, tokens, API keys, chaves privadas, strings de conexão com senha). Leia de variáveis de ambiente.
+- **Nunca** imprima, logue ou cite segredos completos em respostas, logs ou commits. Mascare (`sk-****abcd`).
+- Ao criar um arquivo de ambiente, crie também um `.env.example` sem valores reais e garanta que `.env*` (exceto o exemplo) esteja no `.gitignore`.
+- Ao criar arquivos de build, dados, logs, dumps, chaves ou dependências locais, verifique se já estão cobertos pelo `.gitignore`. Se não estiverem, avise.
+- Valide e sanitize toda entrada externa. Use consultas parametrizadas (nunca concatene SQL).
+- Autenticação e autorização no **servidor**. Checagem apenas no frontend não é segurança.
+- Não desative proteções (CSRF, validação de certificado, CORS restrito) para "fazer funcionar".
+- Prefira dependências mantidas, com versão fixada. Não adicione bibliotecas sem necessidade.
+- Se encontrar um segredo real já versionado, avise o usuário: é preciso **revogar e rotacionar**. Apenas apagar não resolve.
+
+Para uma revisão completa do projeto, use o comando `/security-review`.
